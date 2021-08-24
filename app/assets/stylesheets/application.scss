@@ -14,3 +14,59 @@
 
  */
 @import "bootstrap";
+.navbar {
+  background-color: black !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.navbar-brand {
+  //font-size: 3rem;
+  color: white;
+}
+
+
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+#home-container {
+  margin-top: 25px;
+}
+
+.jumbotron {
+background-color: lightblue;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 425px;
+}
+.display-4{
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+/* Other Classes for Page Styling */
+
+body {
+  background-color: #DADADA;
+}

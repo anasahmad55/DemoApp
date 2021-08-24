@@ -1,0 +1,1 @@
+class User < ApplicationRecord;git  end

@@ -1,30 +1,25 @@
 <div class="container">
-  <h2>Articles</h2>
+  <h2 class="text-center ">Articles</h2>
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col">ID</th>
-    <th scope="col">Title</th>
-    <th scope="col">Description</th>
-    <th colspan="3" >Actions</th>
-  </tr>
-  </thead>
-
-  <tbody>
   <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.id %></td>
-      <td><%= article.title %></td>
-      <td><%= article.description %></td>
-      <td><%= link_to 'Delete' , article_path(article) , method: :delete, data: {confirm: "Are you sure"} %></td>
-      <td><%= link_to 'Show' , article_path(article) %></td>
-      <td><%= link_to 'Edit' , edit_article_path(article)%></td>
-    </tr>
+  <div class="card text-center m-5 shadow mb-5 bg-white rounded">
+    <div class="card-header">
+      Created by Anas Ahmad
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= article.title %></h5>
+      <p class="card-text"><%= article.description %></p>
+      <%= link_to 'Show' , article_path(article),class: "btn btn-outline-primary" %>
+      <%= link_to 'Edit' , edit_article_path(article) , class: "btn btn-outline-success"%>
+      <%= link_to 'Delete' , article_path(article) , method: :delete, data: {confirm: "Are you sure"} , class: "btn btn-outline-danger"%>
+    </div>
+    <div class="card-footer text-muted">
+      <small>Created <%= time_ago_in_words(article.created_at) %> ago,
+        edited <%= time_ago_in_words(article.updated_at) %> ago</small>
+    </div>
+  </div>
   <% end %>
-  </tbody>
-</table>
-<p>
-  <%= link_to 'Create new article', new_article_path %>
-</p>
+  <div class="row justify-content-center m-3">
+    <%= link_to 'Create new article', new_article_path ,class: "btn btn-success"%>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 
-<%= render 'shared/error' %>
+<%= render 'shared/error', obj:@article%>
 <%= form_with(model: @article ,local: true) do |f| %>
 
   <p>

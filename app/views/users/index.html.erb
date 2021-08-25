@@ -1,0 +1,19 @@
+ <div id="users" class=" justify-content-center">
+    <h1>All users</h1>
+    <% @users.each do |user| %>
+      <div class="container m-5" >
+        <div class="card" style="width: 18rem;">
+          <%= image_tag "dp.png", alt:"User image" ,height: 250%>
+          <div class="card-body">
+            <h5 class="card-title"><%= user.username %></h5>
+            <p class="card-text"><%= user.email %></p>
+            <p class="card-text">Joined <%= time_ago_in_words(user.created_at) %> ago</p>
+            <div class="row">
+              <%= link_to "view", user_path(user) ,class:"btn btn-success"  %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    <%end %>
+  </div>

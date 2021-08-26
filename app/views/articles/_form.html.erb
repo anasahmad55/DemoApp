@@ -11,6 +11,12 @@
     <%= f.text_area :description%>
   </p>
   <p>
+    <%= f.label :Category  %><br>
+    <%= f.collection_select(:category_ids, Category.all, :id, :name,
+                            { prompt: "Make your selection from the list below (can be empty)"},
+                            { multiple: true, size: 3, class: "custom-select shadow rounded" }) %>
+  </p>
+  <p>
     <%= f.submit class: "btn btn-success" %>
   </p>
 <% end %>

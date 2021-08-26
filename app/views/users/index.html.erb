@@ -9,7 +9,14 @@
             <p class="card-text"><%= user.email %></p>
             <p class="card-text">Joined <%= time_ago_in_words(user.created_at) %> ago</p>
             <div class="row">
-              <%= link_to "view", user_path(user) ,class:"btn btn-success"  %>
+              <div class="col align-self-start">
+                <%= link_to "view", user_path(user), class:"btn btn-success"  %>
+              </div>
+              <div class="col align-self-end">
+                <% if currentUser.admin? %>
+                  <%= link_to "delete", user_path(user), class:"btn btn-danger", id: "deleteUser", data: {confirm: "Are you sure you want to delete"}, method: :delete %>
+                <%end %>
+              </div>
             </div>
 
           </div>

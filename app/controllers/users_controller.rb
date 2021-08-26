@@ -44,15 +44,15 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    session[:user_id] = nil
-    flash[:notice] = "Your account and articles deleted permanently"
+    session[:user_id] = nil if currentUser ==@user
+    flash[:alert] = 'Your account and articles deleted permanently'
     redirect_to root_path
   end
 
   private
   def require_same_user
-    if currentUser != @user
-      flash[:notice] = 'You must be same user to perform this action '
+    if currentUser != @user && !currentUser.admin?
+      flash[:alert] = 'You must be same user to perform this action '
       redirect_to root_path
     end
   end

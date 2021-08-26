@@ -47,12 +47,12 @@ class ArticlesController < ApplicationController
   end
 
   def param
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, category_ids: [])
   end
 
   def require_same_user
-    if currentUser != @article.user
-      flash[:notice] = 'You must be same user to perform this action '
+    if currentUser != @article.user && !  currentUser.admin?
+      flash[:alert] = 'You must be same user to perform this action '
       redirect_to articles_path
     end
   end

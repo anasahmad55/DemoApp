@@ -13,7 +13,7 @@
                 <%= link_to "view", user_path(user), class:"btn btn-success"  %>
               </div>
               <div class="col align-self-end">
-                <% if currentUser.admin? %>
+                <% if currentUser && currentUser.admin? %>
                   <%= link_to "delete", user_path(user), class:"btn btn-danger", id: "deleteUser", data: {confirm: "Are you sure you want to delete"}, method: :delete %>
                 <%end %>
               </div>

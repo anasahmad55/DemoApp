@@ -19,3 +19,6 @@
 //= require popper
 //= require bootstrap
 
+function myFunction() {
+    alert("I am an alert box!");
+}

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show, :destroy]
-  before_action :require_user, only: [:edit, :update]
+  before_action :require_user, only: [:edit, :update,:destroy]
   before_action :require_same_user, only: [:update,:edit,:destroy]
 
   def new
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit;  end
+  def edit; end
 
   def update
     @user = User.find(params[:id])
@@ -44,12 +44,13 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    session[:user_id] = nil if currentUser ==@user
-    flash[:alert] = 'Your account and articles deleted permanently'
+    session[:user_id] = nil if currentUser == @user
+    flash[:alert] = 'Account and articles deleted permanently'
     redirect_to root_path
   end
 
   private
+
   def require_same_user
     if currentUser != @user && !currentUser.admin?
       flash[:alert] = 'You must be same user to perform this action '

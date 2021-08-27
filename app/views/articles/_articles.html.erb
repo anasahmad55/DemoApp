@@ -5,10 +5,9 @@
       <div class="card-header">
         <%if article.user %>
           Created by <%= link_to article.user.username, user_path(article.user)  %>
-        <%end%>
+        <%end%><br>
         <% if article.categories.any? %>
-          <%=#rails gives us this benifit for using this below instead of this such as categories/_categories.html.erb %>
-          <div class="mt-2"><%= render article.categories %></div>
+        <%= render article.categories %>
         <%end %>
       </div>
       <div class="card-body">

@@ -1,15 +1,12 @@
 <div class="container">
   <h2 class="text-center m-5"><%= @article.title %></h2>
-
-
-    <div class="card text-center m-5 shadow mb-5 bg-white rounded">
+  <div class="card text-center m-5 shadow mb-5 bg-white rounded">
       <div class="card-header">
         <%if @article.user %>
           Created by <%= link_to @article.user.username, user_path(@article.user)  %>
         <%end%>
-        <% if article.categories.any? %>
-          <div class="mt-2"><%= render article.categories %></div>
-          <%= render article.categories %>
+        <% if @article.categories.any? %>
+          <div class="mt-2"><%= render @article.categories %></div>
         <%end %>
       </div>
       <div class="card-body">
